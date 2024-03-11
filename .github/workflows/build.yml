@@ -4,10 +4,7 @@ jobs:
       runs-on: ubuntu-latest
       container: node:20
       steps: 
-        - uses: actions/setup-node@v4.0.2
+        - uses: actions/checkout@v4
         - run: npm install
         - run: npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
-
       
-            
-        
