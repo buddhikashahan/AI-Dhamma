@@ -1,11 +1,17 @@
 {
-  "dependencies": {
-    "@adiwajshing/baileys": "git+https://github.com/WhiskeySockets/Baileys.git",
-    "axios": "^1.6.5",
-    "cheerio": "^1.0.0-rc.12",
-    "node-fetch": "^3.3.2",
-    "pino": "^8.17.2",
-    "translate": "^2.0.2"
+  "scripts": {
+      "start": "pm2 start index.js --deep-monitoring --attach --name wabot",
+      "stop": "pm2 stop wabot",
+      "restart": "pm2 restart wabot && pm2 logs"
   },
-  "type": "module"
+"dependencies": {
+  "@adiwajshing/baileys": "git+https://github.com/WhiskeySockets/Baileys.git",
+  "axios": "^1.6.5",
+  "cheerio": "^1.0.0-rc.12",
+  "node-fetch": "^3.3.2",
+  "pino": "^8.17.2",
+  "pm2": "^5.2.0",
+  "translate": "^2.0.2"
+},
+"type": "module"
 }
