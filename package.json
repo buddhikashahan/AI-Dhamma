@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@adiwajshing/baileys": "git+https://github.com/WhiskeySockets/Baileys.git",
+    "@chattylabs/language-detection": "^0.1.1",
+    "@haileybot/language-detector": "^1.1.1",
     "axios": "^1.6.5",
     "cheerio": "^1.0.0-rc.12",
     "franc": "^6.2.0",
