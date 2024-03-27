@@ -1,14 +1,18 @@
-import fs from 'fs';
-import {
+const express = require('express');
+const fs = require('fs');
+const {
     makeWASocket,
     useMultiFileAuthState,
     DisconnectReason,
     jidNormalizedUser,
     getContentType
-} from '@adiwajshing/baileys';
-import P from 'pino';
-import translate from 'translate';
-import fetch from 'node-fetch';
+} = require('@adiwajshing/baileys');
+const P = require('pino');
+const translate = require('translate');
+const fetch = require('node-fetch');
+
+const app = express();
+const port = 3000;
 
 const prefix = '.';
 const owner = ['94766866297'];
@@ -124,7 +128,7 @@ async function connectToWA() {
                 fetch('https://api.botsonic.ai/v1/botsonic/generate', {
                     method: 'POST',
                     headers: {
-                        'Accept-Encoding': 'gzip, deflate',
+                        'Accept: 'gzip, deflate',
                         'Connection': 'keep-alive',
                         'Content-Type': 'application/json',
                         'User-Agent': 'python-requests/2.28.1',
@@ -179,4 +183,17 @@ async function connectToWA() {
     })
 }
 
-connectToWA()
+// Express route to handle incoming WhatsApp messages
+app.post('/webhook', (req, res) => {
+    // Handle incoming WhatsApp messages here
+    res.send('Received WhatsApp message!');
+});
+
+// Start the Express server
+app.listen(port, () => {
+    console.log(`Express server is listening on port ${port}`);
+});
+
+// Connect to WhatsApp
+connectToWA();
+
